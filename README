@@ -1,0 +1,51 @@
+
+/*Name: Tarush Shankar
+UID : 1647043
+Name: Purnapushkala Hariharan
+UID: 1623714
+CMPUT 275, Wi 2021
+Assignment : Trivial Navigation System.
+*/
+
+Included Files:
+	* README
+	* Makefile
+		Targets:
+			- all  --> server and client executable
+			- client  --> client.o
+			- client.o --> client/client.cpp
+			- server  --> creating the server executable
+			- server.o  --> server.o dijkstra.o digraph.o
+			- dijkstra.o  --> server/dijkstra.cpp server/dijkstra.h server/heap.h
+			- digraph.o  --> server/digraph.cpp server/digraph.h server/wdigraph.h
+			- clean  --> removes all target files, pipes and executables.
+
+	* plotter
+	*link_emulator
+	*/client
+		- client.cpp
+
+	*/server
+		- dijkstra.cpp
+		- dijkstra.h
+		- server.cpp
+		- wdigraph.h
+		- digraph.h
+		- digraph.cpp
+
+Running Instructions:
+    Running the program will require us to use three terminals. Each dealing with client executable, server executable and the plotter. Make sure you have the client, server, 
+    the txt file containing the data of the edmonton roads, makefile, plotter and the 
+    link_emulator in the main directory.
+	Type "make" in all the three terminals to deal with client and server
+	executables. You should enter your port number in the bash shell dealing with server, again you will have to enter the same port number and the ip address in another terminal, and finally run plotter in a third terminal.
+	The plotter will come up with a map of Edmonton and you will have to enter two points on
+	the map, the program will calculate the shortest distance for you.
+Working Theory:
+    Once you run the program with the instructions  provided above, your code will start working.
+    The plotter is a User Interface which displays the map of Edmonton,AB, for you t navigate along the roads and find shortest distance between two points. The information is sent there 
+    with the help of inpipe. The client is a mediator and will connect the plotter to the server.
+    The client takes this information and sends it to server. Server will thus receive the 
+    information packet from the client, it uses dijkstra's algorithm to find the shortest 
+    distance between any two points. The client receives the information of the shortest distance and navigates through the map to find different pathways. when the flow of packets stop, the client will output the string pf informtation to the outpipe which will further communicate with the plotter and draw the shortest path.
+	The make clean will reamove all the pipe files in the main directory.
